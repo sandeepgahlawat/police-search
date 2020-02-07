@@ -38,14 +38,22 @@ public class PoliceSearch {
         ps.searchInCriminalRecords(needle.toLowerCase());
     }
 
+
+/*
+This method is used to populate criminals data as given by the question
+ */
     private void populateCriminalsData() {
         criminals.put("Paul White", "Roger Night,Peter Llong Jr.");
         criminals.put("Roger Fedexer", "Rob Ford,Pete Lord,Roger McWire");
         criminals.put("Paul White Jr.", null);
         criminals.put("Red Fortress", "Roger Rabbit,Ross Winter");
         criminals.put("Redford Fort", "Red Strong,Red Fort");
+        criminals.put("Fox Hat","Hate Fox,Fox Hater");
     }
 
+    /*
+    To separate the names or keys and aliases
+     */
     private void prepareData() {
         int i = 0;
         for (Map.Entry<String, String> data : criminals.entrySet()) {
@@ -67,6 +75,9 @@ public class PoliceSearch {
 
     }
 
+    /*
+    To update the found match type and the corresponding index of the data
+     */
     private void setBestMatch(MatchType bestMatch, int index) {
         if (this.bestMatch.priority >= bestMatch.priority) {
             System.out.println("found match but ignored");
